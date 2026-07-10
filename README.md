@@ -1,7 +1,7 @@
-# Integrated Humanitarian Coordination System (ICHS) — Internship
+# Integrated Humanitarian Coordination System (IHCS) — Internship
 
 > ESP32-based firmware modules for a field-deployable humanitarian coordination terminal.  
-> Developed as part of the ICHS internship programme.
+> Developed as part of the IHCS internship programme.
 
 ---
 
@@ -53,7 +53,7 @@ The work was carried out across three internship phases:
 ## Project Structure
 
 ```
-Integrated-Humanitarian-Coordination-System-ICHS-Internship/
+Integrated-Humanitarian-Coordination-System-IHCS-Internship/
 ├── Drives                          # Google Drive links for each internship phase
 ├── README.md                       # This file
 ├── led_blink/                      # Phase 1 — GPIO LED blink
@@ -122,7 +122,7 @@ The simplest possible ESP-IDF application. Configures GPIO 33 as an output and t
 Tests UART serial output by printing a boot message and then a incrementing "Heartbeat" counter every second. Confirms that the USB-to-UART bridge and serial monitor are functioning.
 
 **Key details:**
-- Prints `"ICHS Field Terminal — Boot OK"` at startup
+- Prints `"IHCS Field Terminal — Boot OK"` at startup
 - Prints `"Heartbeat: <n>"` every 1 second
 - Uses `printf()` which maps to the default UART0 console
 
@@ -151,7 +151,7 @@ Reads three push-buttons on GPIO 25, 26, and 27. Each button is configured as an
 
 **Phase:** Hardware Bring-Up
 
-Implements a bit-banged 4-bit I2C driver for a 16×2 character LCD with a PCF8574 I2C backpack (address `0x27`). The driver uses the ESP-IDF `i2c_master` API. The test displays `"ICHS OK"` on the first line and an incrementing counter on the second line, updating every second.
+Implements a bit-banged 4-bit I2C driver for a 16×2 character LCD with a PCF8574 I2C backpack (address `0x27`). The driver uses the ESP-IDF `i2c_master` API. The test displays `"IHCS OK"` on the first line and an incrementing counter on the second line, updating every second.
 
 **Key details:**
 - I2C address: `0x27`
@@ -278,4 +278,4 @@ The `Drives` file contains links to Google Drive folders for each internship pha
 
 ## License
 
-This project is developed as part of the ICHS internship programme. No explicit license is declared.
+This project is developed as part of the IHCS internship programme. No explicit license is declared.
