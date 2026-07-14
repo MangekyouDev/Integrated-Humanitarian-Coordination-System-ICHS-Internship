@@ -4,10 +4,16 @@
 #include "board.h"
 
 #define DEBOUNCE_MS 200
+#define NUM_BUTTONS 4
 
-static gpio_num_t s_pins[] = { BUTTON_1_PIN, BUTTON_2_PIN };
-static int s_last_level[2];
-static int64_t s_last_press_time[2];
+static gpio_num_t s_pins[NUM_BUTTONS] = {
+    BUTTON_SELECT_PIN,
+    BUTTON_UP_PIN,
+    BUTTON_DOWN_PIN,
+    BUTTON_BACK_PIN
+};
+static int s_last_level[NUM_BUTTONS];
+static int64_t s_last_press_time[NUM_BUTTONS];
 
 static void configure_pin(gpio_num_t pin)
 {
@@ -23,7 +29,7 @@ static void configure_pin(gpio_num_t pin)
 
 void buttons_init(void)
 {
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < NUM_BUTTONS; i++) {
         configure_pin(s_pins[i]);
         s_last_level[i] = 1; // idle high (active LOW, pull-up)
         s_last_press_time[i] = 0;
@@ -32,7 +38,7 @@ void buttons_init(void)
 
 bool button_pressed(gpio_num_t pin)
 {
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < NUM_BUTTONS; i++) {
         if (s_pins[i] != pin) continue;
 
         int level = gpio_get_level(pin);

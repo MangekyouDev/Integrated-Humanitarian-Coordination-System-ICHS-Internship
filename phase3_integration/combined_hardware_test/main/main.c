@@ -52,8 +52,8 @@ void app_main(void)
 
     while (1)
     {
-        bool b1 = button_pressed(BUTTON_1_PIN);
-        bool b2 = button_pressed(BUTTON_2_PIN);
+        bool b1 = button_pressed(BUTTON_SELECT_PIN);
+        bool b2 = button_pressed(BUTTON_UP_PIN);
 
         if (b1)
         {

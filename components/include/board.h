@@ -7,8 +7,10 @@
 #define LCD_SDA_PIN GPIO_NUM_21
 #define LCD_SCL_PIN GPIO_NUM_22
 
-/* Buttons */
-#define BUTTON_1_PIN GPIO_NUM_32
-#define BUTTON_2_PIN GPIO_NUM_33
+/* Buttons — named by role, used throughout the report terminal state machine */
+#define BUTTON_SELECT_PIN GPIO_NUM_32
+#define BUTTON_UP_PIN      GPIO_NUM_33
+#define BUTTON_DOWN_PIN    GPIO_NUM_25
+#define BUTTON_BACK_PIN    GPIO_NUM_26
 
 #endif
