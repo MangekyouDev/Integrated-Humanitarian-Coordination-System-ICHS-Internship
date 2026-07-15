@@ -139,8 +139,8 @@ void enter_state(DeviceState state)
             lcd_print("Category:");
             lcd_set_cursor(1, 0);
             char buf[32];
-            snprintf(buf, sizeof(buf), "> #%d", s_category_index);
-            lcd_print(buf);
+            snprintf(buf, sizeof(buf), "> %s", category_names[s_category_index]);
+             lcd_print(buf);
             break;
 
         case STATE_DETAIL_ENTRY:
@@ -306,6 +306,10 @@ void app_main(void)
             else {
                 DeviceState next = handle_event(state, event);
                 if (next != state) {
+                    if (state == STATE_CATEGORY_SELECTION && next == STATE_DETAIL_ENTRY) {
+                        current_report.category = (ReportCategory)s_category_index;
+                        printf("[REPORT] category set to %s\n", category_names[s_category_index]);
+                    }
                     state = next;
                     enter_state(state);
                 }
