@@ -276,6 +276,8 @@ void app_main(void)
 {
     printf("SYSTEM START\n");
 
+    buttons_init();
+
     spiffs_log_init();
 
     i2c_master_bus_config_t bus_config = {
@@ -289,8 +291,6 @@ void app_main(void)
     ESP_ERROR_CHECK(i2c_new_master_bus(&bus_config, &bus));
     lcd_i2c_init(bus);
     lcd_init();
-
-    buttons_init();
 
     DeviceState state = STATE_IDLE;
     enter_state(state);
